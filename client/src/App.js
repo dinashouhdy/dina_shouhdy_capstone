@@ -7,15 +7,15 @@ import ItemList from "./pages/ItemList/ItemList";
 function App() {
   return (
     <Router>
-
-        <Header />
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/ItemList" element={<ItemList />} />
-          </Routes>
-        <Footer />
+      <Header />
+      <Routes> 
+        <Route path="/" element={<Homepage />} /> 
+        <Route path="/ItemList" element={<ItemList />} />
+      </Routes>
+      <Footer />
     </Router>
   );
 }
 
 export default App;
+

@@ -1,0 +1,22 @@
+@use '../../styles/variables' as *;
+
+.section-footer {
+    background-color: #374f2f;
+    height: 6rem;
+    width: 50%;
+    color: #faf0e6;
+    margin: auto;
+    border-radius: 25px;
+
+    &__quote {
+        display: flex;
+        justify-content: center;
+        padding-top: 1rem;
+    }
+
+    &__author {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 4rem;
+    }
+}
