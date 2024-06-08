@@ -1,0 +1,40 @@
+@use '../../styles/variables' as *;
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    background-image: url('../../assets/images/homepage-background-img.JPG');
+    background-size: cover; 
+    background-position: center;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f8f8f8;
+        height: 11rem;
+        width: 10rem;
+        border-radius: 5px;
+
+        &__usernameDiv {
+           
+
+        }
+
+        &__button {
+            background-color: #374f2f;
+            color: #f8f8f8;
+            border: none;
+            margin-top: 1rem;
+            height: 2rem;
+            width: 80%;
+            font-weight: 700;
+            border-radius: 5px;
+            align-self: center;
+        }
+    }
+}

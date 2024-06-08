@@ -2,21 +2,22 @@
 
 .section-footer {
     background-color: #374f2f;
-    height: 6rem;
-    width: 50%;
-    color: #faf0e6;
-    margin: auto;
-    border-radius: 25px;
+    height: 11rem;
+    width: 100%;
+    color: #f8f8f8;
+    position: fixed;
+    bottom: 0; 
 
     &__quote {
         display: flex;
         justify-content: center;
-        padding-top: 1rem;
+        padding-top: 3rem;
+        padding-left: 1rem;
     }
 
     &__author {
         display: flex;
-        justify-content: flex-end;
-        padding-right: 4rem;
+        justify-content: center;
+        padding-bottom: 1rem;
     }
 }
