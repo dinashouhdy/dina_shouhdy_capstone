@@ -1,4 +1,4 @@
-# Project Title
+# Camping Planner
 
 ## 1. Overview
 
@@ -25,7 +25,7 @@ A single group of campers that can host up-to six users will use the app. Each u
 
 List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
 
-The homepage will include a log in form that would autheticate a username. The user will then be redirected to the item viewer page which will include two lists, the former will show the overall remaining items and the latetr will include user's selected items. Additinally, there will be two buttons that will allow transfer of items between both lists.
+The homepage will include a log in form that would autheticate a username. The user will then be redirected to the item viewer page which will include two lists, the former will show the overall remaining items and the latter will include user's selected items. Additinally, there will be two buttons that will allow transfer of items between both lists.
 
 ## 2. Implementation
 
@@ -33,7 +33,7 @@ The homepage will include a log in form that would autheticate a username. The u
 
 List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
 
-- React for the frontend
+- React for frontend
 - Express for backend server
 - JSON Web Token for User Authentication
 - Postman to test requests
@@ -142,7 +142,7 @@ Yes, the homepage will include a sign-up and sign-in feature.
 - Checking if a user's credentials match the records when logging in.
 
 > **Authorization**
-- Verifying that the user has access to perform specific actions, such as selecting items to add to their personal list. This would be done by eensuring the caller's identity and the request username are equal.
+- Verifying that the user has access to perform specific actions, such as selecting items to add to their personal list. This would be done by ensuring the caller's identity and the request username are equal.
 
 ## 3. Roadmap
 
