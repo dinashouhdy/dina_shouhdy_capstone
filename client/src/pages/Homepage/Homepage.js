@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './Homepage.scss';
+
+const signupUrl = 'http://localhost:3000/';
 
 function Homepage() {
     const [formData, setFormData] = useState({
         username: '',
         password: ''
     });
+
+    const [isSignedUp, setIsSignedUp] = useState(false);    
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -15,11 +21,33 @@ function Homepage() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // ADD REQUEST HERE
+        try {
+            const response = await axios.post(signupUrl, {
+                username: formData.username,
+                password: formData.password
+            });
+            
+            if (response.status === 200) {
+                setIsSignedUp(true);
+                setErrorMessage("");
+            }
+        } catch (error) {
+            console.error("Signup error:", error);
+            setErrorMessage("Signup failed. Please try again.");
+        }
         console.log(formData);
     };
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (isSignedUp) {
+    //         handleLogin(e);
+    //     } else {
+    //         handleSignup(e);
+    //     }
+    // };
 
     return (
         <section className='homepage'>
@@ -34,7 +62,10 @@ function Homepage() {
                 <br />
                 <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
             </div>
-            <button className='homepage__form__button' type="submit">Sign up / Log in</button>
+            <button className='homepage__form__button' type="submit">
+                {isSignedUp ? "Log in" : "Sign up"}
+            </button>
+            {errorMessage && <p className='error'>{errorMessage}</p>}
           </form>
         </section>
     );
