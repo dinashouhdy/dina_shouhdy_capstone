@@ -1,74 +1,62 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import './Homepage.scss';
+import React, { useState } from "react";
+import axios from "axios";
+import "./Homepage.scss";
+import { useNavigate } from 'react-router-dom';
+import Footer from "../../components/Footer/Footer";
 
-const signupUrl = 'http://localhost:3000/';
+const CREATE_TRIP_URL = "http://localhost:8080/create-trip";
+const JOIN_TRIP_URL = "http://localhost:8080/join-trip";
 
 function Homepage() {
-    const [formData, setFormData] = useState({
-        username: '',
-        password: ''
+  const navigate = useNavigate();
+  const [username, setUserName] = useState("");
+  const [tripId, setTripId] = useState("");
+
+  const handleCreateTrip = async () => {
+    const response = await axios.post(CREATE_TRIP_URL, {
+      username: username.toLowerCase(),
     });
+    navigate(`${response.data.tripId}/${username.toLowerCase()}`)
+};
 
-    const [isSignedUp, setIsSignedUp] = useState(false);    
-    const [errorMessage, setErrorMessage] = useState("");
+  const handleJoinTrip = async () => {
+    const response = await axios.post(JOIN_TRIP_URL, {
+        username: username.toLowerCase(),
+        tripId: tripId
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
-    };
+      });
+      navigate(`${tripId}/${username.toLowerCase()}`)
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post(signupUrl, {
-                username: formData.username,
-                password: formData.password
-            });
-            
-            if (response.status === 200) {
-                setIsSignedUp(true);
-                setErrorMessage("");
-            }
-        } catch (error) {
-            console.error("Signup error:", error);
-            setErrorMessage("Signup failed. Please try again.");
-        }
-        console.log(formData);
-    };
+  return (
+    <section className='homepage'>
+      <div className='homepage__form'>
+      <input className='homepage__form__input' placeholder="Username" onChange={(e) => setUserName(e.target.value)}></input>
+        <button
+          className='homepage__form__button'
+          type="submit"
+          onClick={() => handleCreateTrip()}
+        >
+          Create a trip
+        </button>
+      </div>
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     if (isSignedUp) {
-    //         handleLogin(e);
-    //     } else {
-    //         handleSignup(e);
-    //     }
-    // };
+      <h1 className="or">OR</h1>
 
-    return (
-        <section className='homepage'>
-          <form className='homepage__form' onSubmit={handleSubmit}>
-            <div className='homepage__form__usernameDiv'>
-                <label htmlFor="username">Username:</label>
-                <br />
-                <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} />
-            </div>
-            <div className='homepage__form__passwordDiv'>
-                <label htmlFor="password">Password:</label>
-                <br />
-                <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
-            </div>
-            <button className='homepage__form__button' type="submit">
-                {isSignedUp ? "Log in" : "Sign up"}
-            </button>
-            {errorMessage && <p className='error'>{errorMessage}</p>}
-          </form>
-        </section>
-    );
+      <div className='homepage__form'>
+        <input className='homepage__form__input' placeholder="Enter Username" onChange={(e) => setUserName(e.target.value)}></input>
+        <input className='homepage__form__input' placeholder="Insert Trip Id" onChange={(e) => setTripId(e.target.value)}></input>
+        <button
+          className='homepage__form__button'
+          type="submit"
+          onClick={() => handleJoinTrip()}>
+          Join a trip
+        </button>
+      </div>
+      <Footer />
+    </section>
+    
+  );
 }
 
 export default Homepage;

@@ -1,11 +1,11 @@
 @use '../../styles/variables' as *;
+@use '../../styles/fonts' as *;
 
 .homepage {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    height: 80vh;
     background-image: url('../../assets/images/homepage-background-img.JPG');
     background-size: cover; 
     background-position: center;
@@ -15,19 +15,23 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #f8f8f8;
-        height: 11rem;
-        width: 10rem;
+        background-color: $OffWhite;
+        height: 10rem;
+        width: 12rem;
         border-radius: 5px;
+        margin: 2rem;
 
-        &__usernameDiv {
-           
-
+        &__input {
+            margin-bottom: 5px;
+            height: 2rem;
+            width: 80%;
+            border: $ForestGreen solid 2px;
+            border-radius: 5px;
         }
 
         &__button {
-            background-color: #374f2f;
-            color: #f8f8f8;
+            background-color: $ForestGreen;
+            color: $OffWhite;
             border: none;
             margin-top: 1rem;
             height: 2rem;
@@ -36,5 +40,9 @@
             border-radius: 5px;
             align-self: center;
         }
+    }
+
+    .or {
+        color: $OffWhite;
     }
 }

@@ -1,18 +1,18 @@
 @use '../../styles/variables' as *;
+@use '../../styles/fonts' as *;
 
 .section-footer {
-    background-color: #374f2f;
-    height: 11rem;
+    background-color: $ForestGreen;
     width: 100%;
-    color: #f8f8f8;
+    color: $OffWhite;
     position: fixed;
     bottom: 0; 
+    padding-top: 1rem;
 
     &__quote {
         display: flex;
         justify-content: center;
-        padding-top: 3rem;
-        padding-left: 1rem;
+        align-items: center;
     }
 
     &__author {

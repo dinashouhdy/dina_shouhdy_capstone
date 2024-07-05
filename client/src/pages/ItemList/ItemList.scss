@@ -1,3 +1,6 @@
+@use '../../styles/variables' as *;
+@use '../../styles/fonts' as *;
+
 .item-list {
     &__container {
         display: flex;
@@ -8,8 +11,14 @@
 
     &__box {
         width: 45%;
-        border: 1px solid #ccc;
+        border: 1px solid $GreyBorderColor;
         padding: 10px;
+
+        li.shaded {
+            background-color: $DarkGrey; 
+            pointer-events: none; 
+        }
+
     }
 
     &__buttons {
@@ -31,15 +40,21 @@
     }
 
     li {
-        background-color: #f0f0f0;
+        background-color: $LightGrey;
         margin: 5px 0;
         padding: 10px;
-        border: 1px solid #ccc;
+        border: 1px solid $GreyBorderColor;
         cursor: pointer;
     }
 
     .selected {
-        background-color: #d0e0ff;
+        background-color: $MediumGrey;
         border-color: #00f;
+    }
+
+    &__invite {
+        color: $OffWhite;
+        background-color: $ForestGreen;
+        font-weight: 600;
     }
 }

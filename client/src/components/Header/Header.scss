@@ -1,16 +1,18 @@
 @use '../../styles/variables' as *;
+@use '../../styles/fonts' as *;
 
 .section-header {
     height: 8rem;
     width: 100%;
-    background-color: #374f2f;
+    background-color: $ForestGreen;
+    color: $OffWhite;
 
     &__title {
-        color: #f8f8f8;
+        color: $OffWhite;
         margin-top: 0;
         display: flex;
         justify-content: center;
-        padding-top: 3rem;
+        padding-top: 2rem;
         font-size: 2rem;
     }
 }
