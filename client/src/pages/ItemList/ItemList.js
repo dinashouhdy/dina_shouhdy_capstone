@@ -96,7 +96,7 @@ function ItemList() {
               <li
                 key={index}
                 onClick={() => handleItemClick(leftItems.find(leftItem => leftItem.name === item))}
-                className={selectedItem && selectedItem.name === item ? 'unselected' : ''}
+                className={selectedItem && selectedItem.name === item ? 'shaded' : ''}
               >
                 {item} ({username})
               </li>
